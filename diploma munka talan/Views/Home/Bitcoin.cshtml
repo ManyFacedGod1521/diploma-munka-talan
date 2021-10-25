@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Bitcoin";
+}
+
+<h1>Bitcoin</h1>
+<div id="myData"></div>
+
+<script>
+    console.log("kenyer")
+    function fetchdata() {
+
+        fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
+            .then((result) => {
+                //console.log(result);
+                if (!result.ok) {
+                    throw Error
+                }
+
+                return result.json();
+            })
+
+            .then((data) => {
+                console.log(data);
+                var pozition = document.getElementById('myData');
+
+                var btcRate = "Current price of Bitcoin: " + data.bpi.USD.rate + " USD";
+                var symbol = data.bpi.USD.symbol;
+                console.log(btcRate);
+
+                //pozition.insertAdjacentHTML('afterbegin', `<h1>${btcRate}</h1>`);
+                document.querySelector('#myData').innerHTML = `<h2>${btcRate} ${symbol} </h2>`;
+            })
+
+            .catch((err) => {
+                console.log("HIBA");
+            });
+
+
+    }
+    fetchdata();
+    setInterval(function () { fetchdata() }, 7000);
+</script>
+

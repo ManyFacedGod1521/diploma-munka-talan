@@ -1,0 +1,110 @@
+﻿
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="~/js/bitcoinJS.js"></script>
+</head>
+<body>
+
+
+    <div class="content">
+
+        <div class="container">
+
+            <div class="table-responsive">
+
+                <table class="table table-striped custom-table">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Valut</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Symbol</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr scope="row">
+
+                            <td>USD</td>
+                            <td id="USDrate"></td>
+                            <td id="USDsymbol"></td>
+                        </tr>
+
+                        <tr>
+                            <td>GBP</td>
+                            <td id="GBPrate"></td>
+                            <td id="GBPsymbol"></td>
+                        </tr>
+
+                        <tr>
+
+                            <td>EUR</td>
+                            <td id="EURrate"></td>
+                            <td id="EURsymbol"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+    @*<script>
+            console.log("kenyer")
+            function fetchdata() {
+
+                fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
+                    .then((result) => {
+                        //console.log(result);
+                        if (!result.ok) {
+                            throw Error
+                        }
+
+                        return result.json();
+                    })
+
+                    .then((data) => {
+                        console.log(data);
+                        var pozition = document.getElementById('myData');
+
+                        var usdRate = data.bpi.USD.rate;
+                        var usdSymbol = data.bpi.USD.symbol;
+
+                        //pozition.insertAdjacentHTML('afterbegin', `<h1>${btcRate}</h1>`);
+                        document.querySelector('#USDrate').innerHTML = `<a>${usdRate}</a>`;
+                        document.querySelector('#USDSymbol').innerHTML = `<a>${usdSymbol}</a>`;
+                    })
+
+                    .catch((err) => {
+                        console.log("HIBA");
+                    });
+
+
+            }
+            fetchdata();
+            setInterval(function () { fetchdata() }, 7000);
+        </script>*@
+
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>
